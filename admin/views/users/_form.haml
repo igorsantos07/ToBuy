@@ -1,0 +1,16 @@
+.group
+  =f.label :login
+  =f.error_message_on :login
+  =f.text_field :login, :class => :text_field
+  %span.description Ex: a simple text
+
+.group
+  =f.label :password
+  =f.error_message_on :password
+  =f.text_field :password, :class => :text_field
+  %span.description Ex: a simple text
+
+
+.group.navform.wat-cf
+  =f.submit pat(:save), :class => :button
+  =f.submit pat(:cancel), :onclick => "window.location='#{url(:users, :index)}';return false", :class => :button

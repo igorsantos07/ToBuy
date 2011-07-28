@@ -1,13 +1,14 @@
 source :rubygems
 
 # Server requirements
-# gem 'thin' or mongrel
+gem 'thin'
 
 # Project requirements
 gem 'rake'
 gem 'rack-flash'
 
 # Component requirements
+gem 'bcrypt-ruby', :require => "bcrypt"
 gem 'sass'
 gem 'haml'
 gem 'activerecord', :require => "active_record"

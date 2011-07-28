@@ -10,7 +10,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 4) do
+ActiveRecord::Schema.define(:version => 5) do
+
+  create_table "accounts", :force => true do |t|
+    t.string "name"
+    t.string "surname"
+    t.string "email"
+    t.string "crypted_password"
+    t.string "role"
+  end
 
   create_table "currencies", :force => true do |t|
     t.string "code",   :limit => 3,  :null => false
