@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<sql>
+	<datatypes db="sqlite">
+		<group label="Affinity">
+			<type label="Text" default="" length="1" sql="TEXT" quote="'" color="rgb(255,200,200)"/>
+			<type label="Integer" default="0" length="0" sql="INTEGER" quote="" color="rgb(238,238,170)"/>
+			<type label="Numeric" default="0" length="0" sql="NUMERIC" quote="" color="rgb(238,238,170)"/>
+			<type label="Real" default="0" length="0" sql="REAL" quote="" color="rgb(238,238,170)"/>
+			<type label="None" default="" length="0" sql="NONE" quote="" color="rgb(200,255,200)"/>
+		</group>
+	</datatypes>
+	<table x="185" y="245" name="user">
+		<row name="id" null="1" autoincrement="1">
+			<datatype>INTEGER</datatype>
+			<default>NULL</default>
+		</row>
+		<row name="login" null="0" autoincrement="0">
+			<datatype>TEXT(30)</datatype>
+			<default>'NULL'</default>
+		</row>
+		<row name="password" null="0" autoincrement="0">
+			<datatype>TEXT(40)</datatype>
+			<default>'NULL'</default>
+		</row>
+		<key type="PRIMARY" name="">
+			<part>id</part>
+		</key>
+		<key type="UNIQUE" name="user_login">
+			<part>login</part>
+		</key>
+	</table>
+	<table x="435" y="20" name="currency">
+		<row name="id" null="1" autoincrement="1">
+			<datatype>INTEGER</datatype>
+			<default>NULL</default>
+		</row>
+		<row name="code" null="0" autoincrement="0">
+			<datatype>TEXT(3)</datatype>
+			<default>'NULL'</default>
+		</row>
+		<row name="name" null="0" autoincrement="0">
+			<datatype>TEXT(30)</datatype>
+			<default>'NULL'</default>
+		</row>
+		<row name="symbol" null="1" autoincrement="0">
+			<datatype>TEXT(4)</datatype>
+			<default>NULL</default>
+		</row>
+		<key type="PRIMARY" name="">
+			<part>id</part>
+		</key>
+		<key type="UNIQUE" name="currency_code">
+			<part>code</part>
+		</key>
+		<key type="UNIQUE" name="currency_name">
+			<part>name</part>
+		</key>
+	</table>
+	<table x="450" y="195" name="list">
+		<row name="id" null="1" autoincrement="1">
+			<datatype>INTEGER</datatype>
+			<default>NULL</default>
+		</row>
+		<row name="currency_id" null="1" autoincrement="0">
+			<datatype>INTEGER</datatype>
+			<default>NULL</default>
+			<relation table="currency" row="id" />
+		</row>
+		<row name="user_id" null="1" autoincrement="0">
+			<datatype>INTEGER</datatype>
+			<default>NULL</default>
+			<relation table="user" row="id" />
+		</row>
+		<row name="name" null="0" autoincrement="0">
+			<datatype>TEXT(40)</datatype>
+			<default>'NULL'</default>
+		</row>
+		<key type="PRIMARY" name="">
+			<part>id</part>
+		</key>
+	</table>
+	<table x="695" y="175" name="item">
+		<row name="id" null="1" autoincrement="1">
+			<datatype>INTEGER</datatype>
+			<default>NULL</default>
+		</row>
+		<row name="list_id" null="1" autoincrement="0">
+			<datatype>INTEGER</datatype>
+			<default>NULL</default>
+			<relation table="list" row="id" />
+		</row>
+		<row name="code" null="1" autoincrement="0">
+			<datatype>TEXT(30)</datatype>
+			<default>NULL</default>
+		</row>
+		<row name="name" null="1" autoincrement="0">
+			<datatype>TEXT(100)</datatype>
+			<default>NULL</default>
+		</row>
+		<row name="price" null="1" autoincrement="0">
+			<datatype>NUMERIC</datatype>
+			<default>NULL</default>
+		</row>
+		<row name="url" null="1" autoincrement="0">
+			<datatype>TEXT(255)</datatype>
+			<default>NULL</default>
+		</row>
+		<key type="PRIMARY" name="">
+			<part>id</part>
+		</key>
+	</table>
+</sql>
