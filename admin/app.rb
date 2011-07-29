@@ -32,7 +32,6 @@ class Admin < Padrino::Application
 
   access_control.roles_for :admin do |role|
     role.project_module :currencies, "/currencies"
-    role.project_module :users, "/users"
     role.project_module :accounts, "/accounts"
   end
 end

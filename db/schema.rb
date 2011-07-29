@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 5) do
+ActiveRecord::Schema.define(:version => 6) do
 
   create_table "accounts", :force => true do |t|
     t.string "name"
@@ -41,18 +41,11 @@ ActiveRecord::Schema.define(:version => 5) do
 
   create_table "lists", :force => true do |t|
     t.string  "name",        :limit => 49, :null => false
-    t.integer "user_id"
+    t.integer "account_id"
     t.integer "currency_id"
   end
 
+  add_index "lists", ["account_id"], :name => "index_lists_on_user_id"
   add_index "lists", ["currency_id"], :name => "index_lists_on_currency_id"
-  add_index "lists", ["user_id"], :name => "index_lists_on_user_id"
-
-  create_table "users", :force => true do |t|
-    t.string "login",    :limit => 20, :null => false
-    t.string "password", :limit => 40, :null => false
-  end
-
-  add_index "users", ["login"], :name => "index_users_on_login", :unique => true
 
 end
