@@ -1,0 +1,34 @@
+-content_for :title do
+  -'Minhas listas'
+
+-# ############## PÁGINA DAS LISTAS ##############
+#all(data-role="page" data-title="#{title 'Listas'}" data-theme="b")
+  .header(data-role="header")
+    %h1 Listas
+    %a(href="#new" data-icon="plus" class="ui-btn-right") Nova
+
+  .content(data-role="content")
+    -if @lists.empty?
+      %h2.empty
+        Não há nenhuma lista ainda
+        %img(src="/images/emoticon-sad.png" alt="=(" align="absmiddle")
+      %h2
+        Use o botão
+        %a(href="#new" data-icon="plus" data-role="button" data-inline="true") Nova
+        e crie a primeira!
+    -else
+      %ul
+        -@lists.each do |list|
+          %li=list.name
+
+-# ############## PÁGINA DE NOVA LISTA ##############
+#new(data-role="page" data-title="#{title 'Nova Lista'}" data-theme="b")
+  .header(data-role="header")
+    %h1 Nova lista
+    %a(href="#all" data-icon="arrow-l" data-direction="reverse") Voltar
+
+  .content
+    -form_tag(url(:lists, :new)) do
+      %label(for="field-name") Nome
+      =text_field_tag :name, :value => params[:name]
+      =submit_tag('Criar', 'data-inline' => 'true')
