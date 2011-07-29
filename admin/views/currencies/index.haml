@@ -1,0 +1,31 @@
+.block
+  .secondary-navigation
+    %ul.wat-cf
+      %li.first.active=link_to pat(:list), url(:currencies, :index)
+      %li=link_to pat(:new), url(:currencies, :new)
+  .content
+    %h2.title
+      =pat(:all)
+      =mt(:currencies)
+    .inner
+      %table.table
+        %tr
+          %th.first=mat(:currency, :id)
+          %th=mat(:currency, :code)
+          %th=mat(:currency, :name)
+          %th=mat(:currency, :symbol)
+          %th.last="&nbsp;"
+        -@currencies.each do |currency|
+          %tr
+            %td.first=currency.id
+            %td=currency.code
+            %td=currency.name
+            %td=currency.symbol
+            %td.last
+              =button_to pat(:edit), url(:currencies, :edit, :id => currency.id), :method => :get, :class => :button_to
+              ="|"
+              =button_to pat(:delete), url(:currencies, :destroy, :id => currency.id), :method => :delete, :class => :button_to, :onsubmit => "return confirm('#{pat(:confirm)}')"
+      .actions-bar.wat-cf
+        .actions="&nbsp;"
+
+-content_for :sidebar, partial("base/sidebar")

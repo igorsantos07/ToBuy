@@ -1,0 +1,15 @@
+.block
+  .secondary-navigation
+    %ul.wat-cf
+      %li.first=link_to pat(:list), url(:currencies, :index)
+      %li=link_to pat(:new), url(:currencies, :new)
+      %li.active=link_to pat(:edit), url(:currencies, :edit, :id => @currency.id)
+  .content
+    %h2.title
+      =pat(:edit)
+      =mt(:currency)
+    .inner
+      -form_for :currency, url(:currencies, :update, :id => @currency.id), :method => :put, :class => :form do |f|
+        =partial "currencies/form", :locals => { :f => f }
+
+-content_for :sidebar, partial("base/sidebar")
