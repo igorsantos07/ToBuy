@@ -3,12 +3,27 @@ class ToBuy < Padrino::Application
   register Padrino::Rendering
   register Padrino::Mailer
   register Padrino::Helpers
+  register Padrino::Admin::AccessControl
+
+  set :haml, :format => :html5
+
+	set :login_page, '/login'
 
   enable :sessions
+	disable :store_location
 
-	get "/" do
-		"Hello world!"
-	end
+  access_control.roles_for :any do |role|
+    role.protect "/"
+		role.allow "/login"
+		role.allow "/create_session"
+    role.project_module :lists, "/lists"
+    role.project_module :items, "/items"
+  end
+
+  get 'stylesheets/:file.css' do
+    content_type 'text/css', :charset => 'utf-8'
+    sass params[:file]
+  end
 
   ##
   # Caching support
