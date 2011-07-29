@@ -13,6 +13,7 @@ gem 'sass'
 gem 'haml'
 gem 'activerecord', :require => "active_record"
 gem 'sqlite3'
+gem 'awesome_print'
 
 # Test requirements
 

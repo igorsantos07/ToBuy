@@ -12,6 +12,7 @@ GEM
       tzinfo (~> 0.3.23)
     activesupport (3.0.9)
     arel (2.0.10)
+    awesome_print (0.4.0)
     bcrypt-ruby (2.1.4)
     builder (2.1.2)
     daemons (1.1.4)
@@ -86,6 +87,7 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord
+  awesome_print
   bcrypt-ruby
   haml
   padrino (= 0.10.0)
