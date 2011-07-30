@@ -26,3 +26,12 @@ else
 end
 
 shell.say ""
+
+Currency.create(:code => 'BRL', :name => 'Real brasileiro', :symbol => 'R$')
+Currency.create(:code => 'JPY', :name => 'Yen japonês', :symbol => '¥')
+Currency.create(:code => 'GBP', :name => 'Libra esterlina', :symbol => '$')
+Currency.create(:code => 'USD', :name => 'Dólar americano', :symbol => '$')
+Currency.create(:code => 'AUD', :name => 'Dólar australiano', :symbol => '$')
+Currency.create(:code => 'CAD', :name => 'Dólar canadense', :symbol => '$')
+Currency.create(:code => 'CNY', :name => 'Yuan chinês', :symbol => '¥')
+
