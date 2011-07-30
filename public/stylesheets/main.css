@@ -1,5 +1,12 @@
 h2 {
   text-align: center; }
 
-.content {
-  margin: 10px; }
+form {
+  text-align: center; }
+  form .field-line {
+    border-bottom-width: 0px; }
+    form .field-line label {
+      display: inline-block;
+      width: 60px; }
+  form .buttons-line {
+    text-align: center; }
