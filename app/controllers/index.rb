@@ -1,7 +1,7 @@
 ToBuy.controller :index do
 
   get :index, :map => '/' do
-    redirect url(:lists, :index)
+    redirect url(:list, :index)
   end
 
 	get :login do
