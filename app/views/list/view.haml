@@ -1,0 +1,22 @@
+-content_for :title do
+  -@list.name
+
+#all(data-role="page" data-theme="b")
+  .header(data-role="header")
+    %h1=@list.name
+    %a(href="#{url(:list, :index)}" rel="external" data-icon="arrow-l" data-direction="reverse") Listas
+    %a(href="#{url(:item, :new, :list_id => @list.id)}" rel="external" data-icon="plus" class="ui-btn-right") Item
+
+  .content.list(data-role="content")
+    -if @list.items.empty?
+      %h2.empty
+        %a(href="#{url(:item, :new, :list_id => @list.id)}" rel="external" data-icon="plus" data-role="button" data-inline="true") Adicione um item
+    -else
+      %ol(data-role="listview" data-split-icon="search")
+        -@list.items.each do |item|
+          %li
+            %a(href="#{url(:item, :edit, :item_id => item.id, :list_id => @list.id)}" rel="external")=item.name
+            -if !item.url.empty?
+              %a(href="#{item.url}" target="_blank") Abrir URL
+            -if !item.price.nil?
+              %span.ui-li-count=@list.currency.symbol+' '+item.price.to_s

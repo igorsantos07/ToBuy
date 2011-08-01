@@ -4,10 +4,10 @@
 #new(data-role="page" data-theme="b")
   .header(data-role="header")
     %h1 Nova lista
-    %a(href="#{url(:lists, :index)}" rel="external" data-icon="arrow-l" data-direction="reverse") Voltar
+    %a(href="#{url(:list, :index)}" rel="external" data-icon="search" data-direction="reverse") Voltar
 
   .content(data-role="content")
-    -form_for :list, url(:lists, :new) do |f|
+    -form_for :list, url(:list, :new) do |f|
       .field-line(data-role="fieldcontain")
         =f.label :name, :caption => 'Nome: '
         =f.text_field :name
