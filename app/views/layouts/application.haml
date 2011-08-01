@@ -3,11 +3,13 @@
   %head
     %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}
     %title
-      ToBuy -
-      =yield_content :title
-    =stylesheet_link_tag 'http://code.jquery.com/mobile/1.0a2/jquery.mobile-1.0a2.min.css'
+      ToBuy - #{yield_content :title}
+    -# =stylesheet_link_tag 'http://code.jquery.com/mobile/1.0a2/jquery.mobile-1.0a2.min.css'
+    =stylesheet_link_tag 'http://code.jquery.com/mobile/1.0b1/jquery.mobile-1.0b1.min.css'
     =stylesheet_link_tag '/stylesheets/main.css'
     =javascript_include_tag 'http://code.jquery.com/jquery-1.6.1.min.js'
-    =javascript_include_tag 'http://code.jquery.com/mobile/1.0a2/jquery.mobile-1.0a2.min.js'
+    =javascript_include_tag '/javascripts/jquery-mobile-config.js'
+    -# =javascript_include_tag 'http://code.jquery.com/mobile/1.0a2/jquery.mobile-1.0a2.min.js'
+    =javascript_include_tag 'http://code.jquery.com/mobile/1.0b1/jquery.mobile-1.0b1.min.js'
   %body
     =yield
