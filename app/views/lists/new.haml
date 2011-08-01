@@ -6,10 +6,10 @@
     %h1 Nova lista
     %a(href="#{url(:lists, :index)}" rel="external" data-icon="arrow-l" data-direction="reverse") Voltar
 
-  .content
-    -form_for :list, url(:lists, :new), 'data-ajax' => :true do |f|
+  .content(data-role="content")
+    -form_for :list, url(:lists, :new) do |f|
       .field-line(data-role="fieldcontain")
-        =f.label :name, :caption => 'Nome :'
+        =f.label :name, :caption => 'Nome: '
         =f.text_field :name
       .field-line(data-role="fieldcontain")
         =f.label :currency_id, :caption => 'Moeda: '
