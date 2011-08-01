@@ -5,9 +5,17 @@ class Item < ActiveRecord::Base
     elsif !self.code.empty?
       code.to_s
     elsif !self.url.empty?
-      url
+      short_url
     else
       'Item #'+self.id.to_s
+    end
+  end
+
+  def short_url
+    if self.url.empty?
+      ''
+    else
+      self.url.split('http://www.').last.split('http://').last
     end
   end
 end
