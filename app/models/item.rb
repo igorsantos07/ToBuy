@@ -3,11 +3,11 @@ class Item < ActiveRecord::Base
     if !self.name.empty?
       name
     elsif !self.code.empty?
-      code
+      code.to_s
     elsif !self.url.empty?
       url
     else
-      'Item #'+self.id
+      'Item #'+self.id.to_s
     end
   end
 end
