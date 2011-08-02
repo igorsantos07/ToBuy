@@ -1,13 +1,25 @@
-!!! Strict
-%html{:lang => "pt", :xmlns => "http://www.w3.org/1999/xhtml"}
-  %head
-    %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}
-    %title ToBuy - Login
-    -# =stylesheet_link_tag :base, "themes/default/style"
-  %body
-    %h1 Login
+-content_for :title do
+  -'Login'
+
+#login{:data => {:role => :page, :theme => :b}}
+  .header(data-role="header")
+    %a{:href => url(:index, :signup), :data => {:role => :button}} Cadastrar
+    %a{:href => url(:index, :about), :data => {:role => :button, :icon => :info}} Sobre
+    %h1 ToBuy - Login
+
+  .content{:data => {:role => :content}}
+    %h1
+      %img{:src => "/images/icon.png"}
+      %span#part-1 To
+      %span#part-2 Buy
+
     .flash=[:error, :warning, :notice].map { |type| flash_tag(type, :class => "message #{type}") }.join
     -form_tag(url(:index, :create_session)) do
-      =text_field_tag :email, :value => params[:email]
-      =password_field_tag :password, :value => params[:password]
-      =submit_tag('Logar')
+      .field-line{:data => {:role => :fieldcontain}}
+        =label_tag :email, :caption => 'E-mail: '
+        =text_field_tag :email, :value => params[:email]
+      .field-line{:data => {:role => :fieldcontain}}
+        =label_tag :password, :caption => 'Senha: '
+        =password_field_tag :password, :value => params[:password]
+      .buttons-line{:data => {:role => :fieldcontain}}
+        =submit_tag 'Logar', 'data-inline' => true

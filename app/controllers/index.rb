@@ -4,8 +4,12 @@ ToBuy.controller :index do
     redirect url(:list, :index)
   end
 
+	get :about do
+		render '/index/about'
+	end
+
 	get :login do
-		render '/index/login', nil, :layout => false
+		render '/index/login'
 	end
 
 	post :create_session, :map => '/create_session' do
@@ -13,7 +17,7 @@ ToBuy.controller :index do
       set_current_account(account)
       redirect '/'
     else
-      flash[:warning] = "E-mail ou senha incorreto."
+      flash[:warning] = "E-mail ou senha incorretos"
       redirect url(:index, :login)
     end
 	end
@@ -22,4 +26,8 @@ ToBuy.controller :index do
     set_current_account(nil)
     redirect url(:index, :login)
 	end
+
+  get :signup do
+
+  end
 end

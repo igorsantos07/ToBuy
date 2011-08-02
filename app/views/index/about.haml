@@ -1,0 +1,19 @@
+#about(data-role="page" data-theme="b")
+  .header(data-role="header")
+    %h1 ToBuy - Sobre
+    %a(href="#{url(:index, :index)}" data-role="button" data-icon="arrow-l") Voltar
+
+  .content(data-role="content")
+    :textile
+      O *ToBuy* é facilitar as listas de compras online que a gente faz às vezes.
+      Sabe quando você resolve que quer comprar alguns produtos chineses no DealExtreme mas decide que vai fechar a compra outro dia? Então.
+
+      Além disso, também ajuda a +calcular o valor final da compra+, verificando os valores de câmbio.
+      Também ajuda na organização, fornecendo +links com informações de acompanhamento dos pacotes+.
+
+      Ah, deu pra perceber que a interface é +mobile+? Pois é, você pode acessar do celular e verificar as coisas diretamente dele, de forma simples e leve.
+
+    %p
+      E aí, vai
+      %a{:href => url(:index, :signup)} cadastrar
+      quando?

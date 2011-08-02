@@ -14,8 +14,7 @@ class ToBuy < Padrino::Application
 
   access_control.roles_for :any do |role|
     role.protect "/"
-		role.allow "/login"
-		role.allow "/create_session"
+		role.allow ["/login", "/about",  "/signup", "/create_session"]
     role.project_module :lists, "/lists"
     role.project_module :items, "/items"
   end
