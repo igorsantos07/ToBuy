@@ -16,8 +16,7 @@
         %a{:href => url(:list, :new), :rel => :external, :data => { :icon => :plus, :role => :button, :inline => :true}} Nova lista
     -else
       %ol{:data => { :role => :listview, 'split-icon' => :gear}}
-        -@lists.each do |list|
-          %li
-            %a{:href => url(:list, :view, :id => list.id), :rel => :external}=list.name
-            %a{:href => url(:list, :edit, :id => list.id), :rel => :external} Editar lista
-            %span.ui-li-count=list.items_count
+        =list_of(@lists) do |list|
+          %a{:href => url(:list, :view, :id => list.id), :rel => :external}=list.name
+          %a{:href => url(:list, :edit, :id => list.id), :rel => :external} Editar lista
+          %span.ui-li-count=list.items_count
