@@ -19,4 +19,5 @@
         =list_of(@lists) do |list|
           %a{:href => url(:list, :view, :id => list.id), :rel => :external}=list.name
           %a{:href => url(:list, :edit, :id => list.id), :rel => :external} Editar lista
-          %span.ui-li-count=list.items_count
+          -if list.items_count != 0
+            %span.ui-li-count=list.items_count
