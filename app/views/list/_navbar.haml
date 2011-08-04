@@ -1,0 +1,12 @@
+-@class = { active => 'ui-btn-active' }
+
+.navbar{:data => {:role => :navbar}}
+  %ul
+    %li
+      %a{:href => url(:list, :view, :id => @list.id), :class => @class[:view], :data => {:icon => :grid, :iconpos => :top}} Itens
+    %li
+      %a{:href => url(:list, :edit, :id => @list.id), :class => @class[:edit], :data => {:icon => :gear, :iconpos => :top}} Editar
+    %li
+      %a{:href => url(:list, :delete, :id => @list.id), :class => @class[:delete], :data => {:icon => :delete, :iconpos => :top}} Apagar
+    %li
+      %a{:href => url(:list, :delete, :id => @list.id), :class => @class[:bought], :data => {:icon => :check, :iconpos => :top}} Comprada
