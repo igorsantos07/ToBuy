@@ -4,7 +4,7 @@
 #all(data-role="page" data-theme="b")
   .header(data-role="header")
     %h1=@list.name
-    %a(href="#{url(:list, :index)}" rel="external" data-icon="arrow-l" data-direction="reverse") Listas
+    %a(href="#{url(:list, :index)}" data-rel="back" data-icon="arrow-l") Listas
     %a(href="#{url(:item, :new, :list_id => @list.id)}" rel="external" data-icon="plus" class="ui-btn-right") Item
     =partial "list/navbar", :locals => { :active => :view }
 
