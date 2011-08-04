@@ -29,4 +29,12 @@ ToBuy.controllers :list do
 
   end
 
+  get :delete, :with => :id do
+
+  end
+
+  get :bought, :with => :id do
+
+  end
+
 end
