@@ -29,8 +29,17 @@ ToBuy.controllers :list do
 
   end
 
-  get :delete, :with => :id do
+  post :edit, :with => :id do
 
+  end
+
+  get :delete, :with => :id do
+    if List.find(params[:id]).destroy
+      flash[:notice] = 'Lista removida'
+    else
+      flash[:error] = 'Ocorreu um problema ao apagar a lista. Tente mais tarde.'
+    end
+    redirect url(:list, :index)
   end
 
   get :bought, :with => :id do
