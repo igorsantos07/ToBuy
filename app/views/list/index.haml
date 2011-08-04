@@ -1,23 +1,23 @@
 -content_for :title do
   -'Minhas listas'
 
-#all(data-role="page" data-theme="b")
-  .header(data-role="header")
+#all{:data => { :role => :page, :theme => :b}}
+  .header{:data => { :role => :header}}
     %h1 Listas
-    %a(href="#{url(:list, :new)}" rel="external" data-icon="plus" class="ui-btn-right") Nova
+    %a{:href => url(:list, :new), :rel => :external, :class => 'ui-btn-right', :data => { :icon => :plus}} Nova
 
-  .content.list(data-role="content")
+  .content.list{:data => {:role => :content}}
     -if @lists.empty?
       %h2.empty
         Não há nenhuma lista ainda
-        %img(src="/images/emoticon-sad.png" alt="=(" align="absmiddle")
+        %img{:src => '/images/emoticon-sad.png', :alt => '=(', :align => :absmiddle}
       %h2
         Crie a primeira com esse botão:
-        %a(href="#{url(:list, :new)}" rel="external" data-icon="plus" data-role="button" data-inline="true") Nova lista
+        %a{:href => url(:list, :new), :rel => :external, :data => { :icon => :plus, :role => :button, :inline => :true}} Nova lista
     -else
-      %ol(data-role="listview" data-split-icon="gear")
+      %ol{:data => { :role => :listview, 'split-icon' => :gear}}
         -@lists.each do |list|
           %li
-            %a(href="#{url(:list, :view, :id => list.id)}" rel="external")=list.name
-            %a(href="#{url(:list, :edit, :id => list.id)}" rel="external") Editar lista
+            %a{:href => url(:list, :view, :id => list.id), :rel => :external}=list.name
+            %a{:href => url(:list, :edit, :id => list.id), :rel => :external} Editar lista
             %span.ui-li-count=list.items_count
