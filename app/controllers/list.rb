@@ -27,7 +27,7 @@ ToBuy.controllers :list do |controller|
       redirect url(:list, :view, :id => @list.id)
     else
       flash[:warning] = 'Ocorreu um erro ao salvar a lista'
-      render 'list/index'
+      redirect url(:list, :index)
     end
   end
 
@@ -40,11 +40,11 @@ ToBuy.controllers :list do |controller|
   put :edit, :with => :id do
     @list = List.find(params[:id])
     @list.attributes = params[:list]
-    if !@list.save
+    if @list.save
       redirect url(:list, :view, :id => @list.id)
     else
       flash[:warning] = 'Ocorreu um erro ao salvar a lista'
-      render 'list/index'
+      redirect url(:list, :index)
     end
   end
 
