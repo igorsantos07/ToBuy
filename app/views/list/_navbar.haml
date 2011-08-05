@@ -7,6 +7,6 @@
     %li
       %a{:href => url(:list, :edit, :id => @list.id), :class => @class[:edit], :data => {:icon => :gear, :iconpos => :top}} Editar
     %li
-      %a{:href => url(:list, :delete, :id => @list.id), :class => @class[:bought], :data => {:icon => :check, :iconpos => :top}, :onclick => "return confirm('Apagar mesmo esta lista?')"} Apagar
+      %a{:href => url(:list, :delete, :id => @list.id), :class => @class[:bought], :data => {:icon => :delete, :iconpos => :top}, :onclick => "return confirm('Apagar mesmo esta lista?')"} Apagar
     %li
       %a{:href => url(:list, :delete, :id => @list.id), :class => @class[:bought], :data => {:icon => :check, :iconpos => :top}, :onclick => "return confirm('Marcar esta lista como comprada?')"} Comprada
