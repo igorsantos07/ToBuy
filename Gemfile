@@ -20,7 +20,7 @@ gem 'RedCloth'
 
 
 # Padrino
-gem 'padrino', '0.10.0'
+gem 'padrino', '~> 0.10.0'
 # Padrino EDGE
 # gem 'padrino', :git => 'git://github.com/padrino/padrino-framework.git'
 #
