@@ -5,12 +5,13 @@ ToBuy.controllers :list do |controller|
     currencies.collect! { |currency| [currency.symbol+' - '+currency.name, currency.id] }
   end
 
-  get :index do
+  get :index, :map => 'lists' do
     @lists = List.find_all_by_account_id current_account.id
     render 'list/index'
   end
 
-  get :view, :with => :id, :priority => :low do
+  get :view, :map => 'list/:id' do
+    ap params[:id]
     @list = List.find params[:id]
     render 'list/view'
   end
