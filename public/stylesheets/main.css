@@ -65,3 +65,8 @@ input.ui-input-text, textarea.ui-input-text, input.ui-input-search {
     margin-top: -12px;
     padding-bottom: 5px;
     font-size: 1.7em; }
+
+.content.list .flash {
+  margin: -15px -15px 15px -15px; }
+  .content.list .flash .message {
+    width: 100%; }
