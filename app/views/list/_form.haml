@@ -1,0 +1,8 @@
+.field-line(data-role="fieldcontain")
+  =f.label :name, :caption => 'Nome: '
+  =f.text_field :name
+.field-line(data-role="fieldcontain")
+  =f.label :currency_id, :caption => 'Moeda: '
+  =f.select :currency_id, :options => @currencies
+.buttons-line
+  =submit_tag('Criar', 'data-inline' => 'true')

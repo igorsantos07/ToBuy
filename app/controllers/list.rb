@@ -1,4 +1,10 @@
-ToBuy.controllers :list do
+ToBuy.controllers :list do |controller|
+
+  def controller.get_currencies
+    currencies = Currency.order(:name).all
+    currencies.collect! { |currency| [currency.symbol+' - '+currency.name, currency.id] }
+  end
+
   get :index do
     @lists = List.find_all_by_account_id current_account.id
     render 'list/index'
@@ -10,8 +16,7 @@ ToBuy.controllers :list do
   end
 
   get :new do
-    @currencies = Currency.order(:name).all
-    @currencies.collect! { |currency| [currency.symbol+' - '+currency.name, currency.id] }
+    @currencies = controller.get_currencies
     render 'list/new'
   end
 
@@ -21,16 +26,26 @@ ToBuy.controllers :list do
     if @list.save
       redirect url(:list, :view, :id => @list.id)
     else
+      flash[:warning] = 'Ocorreu um erro ao salvar a lista'
       render 'list/index'
     end
   end
 
   get :edit, :with => :id do
-
+    @currencies = controller.get_currencies
+    @list = List.find(params[:id])
+    render 'list/edit'
   end
 
-  post :edit, :with => :id do
-
+  put :edit, :with => :id do
+    @list = List.find(params[:id])
+    @list.attributes = params[:list]
+    if !@list.save
+      redirect url(:list, :view, :id => @list.id)
+    else
+      flash[:warning] = 'Ocorreu um erro ao salvar a lista'
+      render 'list/index'
+    end
   end
 
   get :delete, :with => :id do
@@ -45,5 +60,6 @@ ToBuy.controllers :list do
   get :bought, :with => :id do
 
   end
+
 
 end

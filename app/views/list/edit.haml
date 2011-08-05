@@ -1,11 +1,11 @@
 -content_for :title do
-  -'Nova Lista'
+  -'Editar "'+@list.name+'"'
 
 #new(data-role="page" data-theme="b")
   .header(data-role="header")
-    %h1 Nova lista
+    %h1='Editar "'+@list.name+'"'
     %a(href="#{url(:list, :index)}" data-rel="back" data-icon="arrow-l") Voltar
 
   .content(data-role="content")
-    -form_for :list, url(:list, :new) do |f|
+    -form_for :list, url(:list, :edit, :id => @list.id), :method => :put do |f|
       =partial "list/form", :locals => { :f => f }
