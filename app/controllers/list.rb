@@ -10,13 +10,6 @@ ToBuy.controllers :list do |controller|
     render 'list/index'
   end
 
-  get :view, :with => :id do
-#    :map => 'list/:id',
-#    :priority => :low
-    @list = List.find params[:id]
-    render 'list/view'
-  end
-
   get :new do
     @currencies = controller.get_currencies
     render 'list/new'
@@ -31,6 +24,11 @@ ToBuy.controllers :list do |controller|
       flash[:warning] = 'Ocorreu um erro ao salvar a lista'
       redirect url(:list, :index)
     end
+  end
+
+  get :view, :map => 'list/:id' do
+    @list = List.find params[:id]
+    render 'list/view'
   end
 
   get :edit, :with => :id do
