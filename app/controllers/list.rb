@@ -7,6 +7,7 @@ ToBuy.controllers :list do |controller|
 
   get :index, :map => 'lists' do
     @lists = List.find_all_by_account_id current_account.id
+    @lists = @lists.group_by { |list| list.bought }
     render 'list/index'
   end
 
@@ -58,7 +59,11 @@ ToBuy.controllers :list do |controller|
   end
 
   get :bought, :with => :id do
-
+    @list = List.find params[:id]
+    @list.bought = true
+    @list.save
+    flash[:notice] = 'Lista marcada como comprada'
+    redirect url(:list, :index)
   end
 
 

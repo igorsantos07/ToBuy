@@ -18,8 +18,9 @@
         %a{:href => url(:list, :new), :rel => :external, :data => { :icon => :plus, :role => :button, :inline => :true}} Nova lista
     -else
       %ol{:data => { :role => :listview, 'split-icon' => :gear}}
-        =list_of(@lists) do |list|
-          %a{:href => url(:list, :view, :id => list.id), :rel => :external}=list.name
-          %a{:href => url(:list, :edit, :id => list.id), :rel => :external} Editar lista
-          -if list.items_count != 0
-            %span.ui-li-count=list.items_count
+        %li{:data => {:role => 'list-divider'}} Abertas
+        =list_of(@lists[false]) do |list|
+          =partial 'list/list_item', :locals => { :list => list }
+        %li{:data => {:role => 'list-divider'}} Compradas
+        =list_of(@lists[true]) do |list|
+          =partial 'list/list_item', :locals => { :list => list }
