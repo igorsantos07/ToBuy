@@ -28,7 +28,16 @@ ToBuy.controllers :item, :parent => :list do
     if !@item.save
       flash[:warning] = 'Ocorreu um erro ao salvar o item'
     end
-    redirect url(:list, :view, :id => @item.list.id)
+    redirect url(:list, :view, :id => params[:list_id])
+  end
+
+  get :delete, :with => :id do
+    if Item.find(params[:id]).destroy
+      flash[:notice] = 'Item removido'
+    else
+      flash[:error] = 'Ocorreu um problema ao apagar o item. Tente mais tarde.'
+    end
+    redirect url(:list, :view, :id => params[:list_id])
   end
 
 end

@@ -1,0 +1,6 @@
+-if flash.to_s != '{}'
+  .flash=[:notice, :warning, :error].map { |type| flash_tag(type, :class => "message #{type}") }.join
+  :javascript
+    $(document).ready(function() {
+      setTimeout("$('.flash').fadeOut()", 2*1000)
+    })

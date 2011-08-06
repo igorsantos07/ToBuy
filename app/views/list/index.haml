@@ -7,12 +7,7 @@
     %a{:href => url(:list, :new), :rel => :external, :class => 'ui-btn-right', :data => { :icon => :plus}} Nova
 
   .content.list{:data => {:role => :content}}
-    -if flash.to_s != '{}'
-      .flash=[:notice, :warning, :error].map { |type| flash_tag(type, :class => "message #{type}") }.join
-      :javascript
-        $(document).ready(function() {
-          setTimeout("$('.flash').fadeOut()", 2*1000)
-        })
+    =partial 'list/flash'
 
     -if @lists.empty?
       %h2.empty

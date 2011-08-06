@@ -9,6 +9,8 @@
     =partial "list/navbar", :locals => { :active => :view, :list => @list }
 
   .content.list(data-role="content")
+    =partial 'list/flash'
+
     -if @list.items.empty?
       %h2.empty
         %a(href="#{url(:item, :new, :list_id => @list.id)}" rel="external" data-icon="plus" data-role="button" data-inline="true") Adicione um item
