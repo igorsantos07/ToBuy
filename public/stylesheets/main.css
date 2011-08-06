@@ -16,7 +16,8 @@ form {
     border-bottom-width: 0px; }
     form .field-line label {
       display: inline-block;
-      width: 60px; }
+      width: 95px;
+      text-align: right; }
   form .buttons-line {
     text-align: center; }
 
