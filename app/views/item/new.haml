@@ -4,7 +4,7 @@
 #new(data-role="page" data-theme="b")
   .header(data-role="header")
     %h1 Novo Item
-    %a(href="#{url(:list, :view, :id => @list_id)}" data-role="button" data-icon="arrow-l") Voltar
+    %a(href="#{url(:list, :view, :id => @list_id)}" rel="external" data-icon="arrow-l" data-direction="reverse") Voltar
     -if !@item.url.nil? && !@item.url.empty?
       %a(href="#{@item.url}" target="_blank" data-icon="arrow-r") Abrir URL
 

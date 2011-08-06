@@ -4,7 +4,7 @@
 #new(data-role="page" data-theme="b")
   .header(data-role="header")
     %h1 Nova lista
-    %a(href="#{url(:list, :index)}" data-role="button" data-icon="arrow-l") Voltar
+    %a(href="#{url(:list, :index)}" rel="external" data-icon="search" data-direction="reverse") Voltar
 
   .content(data-role="content")
     -form_for :list, url(:list, :new) do |f|
