@@ -5,6 +5,8 @@ class ToBuy < Padrino::Application
   register Padrino::Helpers
   register Padrino::Admin::AccessControl
 
+  set :money_options, { :delimiter => '.', :separator => ',', :precision => 2 }
+
   set :haml, :format => :html5
 
 	set :login_page, '/login'
