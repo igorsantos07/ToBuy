@@ -10,9 +10,9 @@ ToBuy.controllers :list do |controller|
     render 'list/index'
   end
 
-  get :view,
-    #:map => 'list/:id',
-    :priority => :low do
+  get :view, :with => :id do
+#    :map => 'list/:id',
+#    :priority => :low
     @list = List.find params[:id]
     render 'list/view'
   end
