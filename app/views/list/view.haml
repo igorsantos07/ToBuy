@@ -6,7 +6,7 @@
     %h1=@list.name
     %a(href="#{url(:list, :index)}" data-icon="arrow-l" data-direction="reverse") Listas
     %a(href="#{url(:item, :new, :list_id => @list.id)}" rel="external" data-icon="plus" class="ui-btn-right") Item
-    =partial "list/navbar", :locals => { :active => :view }
+    =partial "list/navbar", :locals => { :active => :view, :list => @list }
 
   .content.list(data-role="content")
     -if @list.items.empty?

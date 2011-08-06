@@ -5,7 +5,7 @@
   .header(data-role="header")
     %h1='Editar "'+@list.name+'"'
     %a(href="#{url(:list, :index)}" data-rel="back" data-icon="arrow-l") Voltar
-    =partial "list/navbar", :locals => { :active => :edit }
+    =partial "list/navbar", :locals => { :active => :edit, :list => @list }
 
   .content(data-role="content")
     -form_for :list, url(:list, :edit, :id => @list.id), :method => :put do |f|

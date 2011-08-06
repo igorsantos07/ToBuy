@@ -1,5 +1,10 @@
 -@class = { active => 'ui-btn-active' }
 
+.list-total
+  %h5
+    Total:
+    %span.total #{list.currency.symbol}#{list.total}
+
 .navbar{:data => {:role => :navbar}}
   %ul
     %li

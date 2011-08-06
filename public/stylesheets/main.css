@@ -1,4 +1,4 @@
-h2 {
+h2, h3, h4, h5, h6 {
   text-align: center; }
 
 p {
@@ -38,6 +38,13 @@ form {
 .message.error {
   background-color: lightSalmon;
   color: maroon; }
+
+.header .list-total h5 {
+  margin-bottom: 10px;
+  margin-top: -10px;
+  font-weight: normal; }
+  .header .list-total h5 .total {
+    font-weight: bold; }
 
 .footer .ui-btn {
   margin: 10px; }
