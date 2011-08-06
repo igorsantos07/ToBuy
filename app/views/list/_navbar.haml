@@ -3,7 +3,7 @@
 .list-total
   %h5
     Total:
-    %span.total #{list.currency.symbol}#{list.total}
+    %span.total=list.currency.symbol+list.total.to_s
 
 .navbar{:data => {:role => :navbar}}
   %ul
