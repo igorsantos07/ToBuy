@@ -3,12 +3,16 @@ class Item < ActiveRecord::Base
     if !self.name.empty?
       name
     elsif !self.code.empty?
-      code.to_s
+      '<tt>#'+code.to_s+'</tt>'
     elsif !self.url.empty?
       short_url
     else
       'Item #'+self.id.to_s
     end
+  end
+
+  def list
+    List.find self.list_id
   end
 
   def short_url

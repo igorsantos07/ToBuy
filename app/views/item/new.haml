@@ -9,18 +9,5 @@
       %a(href="#{@item.url}" target="_blank" data-icon="arrow-r") Abrir URL
 
   .content(data-role="content")
-    -form_for :item, url(:item, :new, :list_id => @list_id), 'data-ajax' => :false do |f|
-      .field-line(data-role="fieldcontain")
-        =f.label :name, :caption => 'Nome: '
-        =f.text_field :name
-      .field-line(data-role="fieldcontain")
-        =f.label :code, :caption => 'Código: '
-        =f.text_field :code
-      .field-line(data-role="fieldcontain")
-        =f.label :price, :caption => 'Preço: '
-        =f.text_field :price
-      .field-line(data-role="fieldcontain")
-        =f.label :url, :caption => 'URL: '
-        =f.text_field :url
-      .buttons-line
-        =submit_tag('Criar', 'data-inline' => 'true')
+    -form_for :item, url(:item, :new, :list_id => @list_id) do |f|
+      =partial "item/form", :locals => { :f => f }

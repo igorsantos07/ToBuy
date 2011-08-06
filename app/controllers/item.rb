@@ -15,8 +15,20 @@ ToBuy.controllers :item, :parent => :list do
     end
   end
 
-  get :edit do
-    
+  get :edit, :map => 'item/:id' do
+    @item = Item.find(params[:id])
+    render 'item/edit'
+  end
+
+  put :edit, :map => 'item/:id' do
+    @item = Item.find(params[:id])
+    ap @item
+    @item.attributes = params[:item]
+    ap @item
+    if !@item.save
+      flash[:warning] = 'Ocorreu um erro ao salvar o item'
+    end
+    redirect url(:list, :view, :id => @item.list.id)
   end
 
 end

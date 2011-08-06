@@ -1,0 +1,11 @@
+-content_for :title do
+  -'Ver/editar item'
+
+#new(data-role="page" data-theme="b")
+  .header(data-role="header")
+    %h1='Editar item'
+    %a(href="#{url(:list, :view, :id => @item.list.id)}" data-rel="back" data-icon="arrow-l") Voltar
+
+  .content(data-role="content")
+    -form_for :item, url(:item, :edit, :id => @item.id, :list_id => @item.list.id), :method => :put do |f|
+      =partial "item/form", :locals => { :f => f }

@@ -16,7 +16,7 @@
       %ol(data-role="listview" data-split-icon="search")
         -@list.items.each do |item|
           %li
-            %a(href="#{url(:item, :edit, :item_id => item.id, :list_id => @list.id)}" rel="external")=item.displayable_name
+            %a(href="#{url(:item, :edit, :id => item.id, :list_id => @list.id)}" rel="external")=item.displayable_name
             -if !item.url.empty?
               %a(href="#{item.url}" target="_blank") Abrir URL
             -if !item.price.nil?
