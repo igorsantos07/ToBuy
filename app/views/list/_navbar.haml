@@ -3,7 +3,7 @@
 .list-total
   %h5
     -if !@list.bought
-      Comprada - 
+      Comprada -
     Total:
     %span.total=list.currency.symbol+number_with_precision(list.total, settings.money_options)
 
@@ -14,7 +14,7 @@
     %li
       %a{:href => url(:list, :edit, :id => @list.id), :class => @class[:edit], :data => {:icon => :gear, :iconpos => :top}} Editar
     %li
-      %a{:href => url(:list, :delete, :id => @list.id), :class => @class[:bought], :data => {:icon => :delete, :iconpos => :top}, :onclick => "return confirm('Apagar mesmo esta lista?')"} Apagar
+      %a{:href => url(:list, :delete, :id => @list.id), :class => @class[:bought], :data => {:feature => 'delete-list-btn', :icon => :delete, :iconpos => :top}} Apagar
     -if !@list.bought
       %li
-        %a{:href => url(:list, :bought, :id => @list.id), :class => @class[:bought], :data => {:icon => :check, :iconpos => :top}, :onclick => "return confirm('Marcar esta lista como comprada?')"} Comprada
+        %a{:href => url(:list, :bought, :id => @list.id), :class => @class[:bought], :data => {:feature => 'bought-btn', :icon => :check, :iconpos => :top}} Comprada
