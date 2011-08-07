@@ -1,10 +1,13 @@
 class Item < ActiveRecord::Base
-  def displayable_name
-    if !self.name.empty?
-      name
-    elsif !self.code.empty?
+
+  def name
+    if self[:name].nil?
+      nil
+    elsif !self[:name].empty?
+      self[:name]
+    elsif !code.empty?
       '<tt>#'+code.to_s+'</tt>'
-    elsif !self.url.empty?
+    elsif !url.empty?
       short_url
     else
       'Item #'+self.id.to_s
