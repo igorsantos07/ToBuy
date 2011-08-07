@@ -4,7 +4,11 @@ ToBuy.controllers :account do
   end
 
   post :new, :map => 'signup' do
-    ap params
+    unless params[:account]['name'].empty?
+      parts = params[:account]['name'].partition ' '
+      params[:account]['name'] = parts[0]
+      params[:account]['surname'] = parts[2]
+    end
     @account = Account.new(params[:account])
     @account.role = 'user'
     if @account.save
