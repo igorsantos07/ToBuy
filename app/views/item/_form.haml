@@ -15,3 +15,6 @@
   =f.text_area :comment
 .buttons-line
   =submit_tag('Salvar', 'data-inline' => 'true')
+
+:javascript
+  $('#item_price').priceFormat(#{priceFormat_options(@item.list)})

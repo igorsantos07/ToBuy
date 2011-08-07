@@ -1,13 +1,15 @@
 ToBuy.controllers :item, :parent => :list do
   get :new do
-    @list_id = params[:list_id]
-    @item = Item.new
+    @item = Item.new :list_id => params[:list_id]
     render 'item/new'
   end
 
   post :new do
+    @list = List.find params[:list_id]
+    params[:item]['price'] = params[:item]['price'].sub(@list.currency.symbol+' ','').gsub('.','').sub(',','.') unless params[:item]['price'].empty? #changing from "R$ 10.000,55" to "10000.55"
+
+    ap params
     @item = Item.new(params[:item].merge! :list_id => params[:list_id])
-    @item.list_id =
     if @item.save
       redirect url(:list, :view, :id => @item.list_id)
     else
