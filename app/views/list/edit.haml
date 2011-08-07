@@ -10,3 +10,4 @@
   .content(data-role="content")
     -form_for :list, url(:list, :edit, :id => @list.id), :method => :put do |f|
       =partial "list/form", :locals => { :f => f }
+  =partial 'layouts/footer'

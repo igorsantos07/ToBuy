@@ -1,0 +1,4 @@
+.footer{:data => {:role => :footer, :position => :fixed}}
+  %a{:href => url(:index, :about), :data => {:icon => :info}} Sobre
+  -unless current_account.nil?
+    %a{:href => url(:index, :logout), :class => 'ui-btn-right', :data => {:icon => :back}} Logout
