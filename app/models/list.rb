@@ -4,6 +4,16 @@ class List < ActiveRecord::Base
     Item.find_all_by_list_id self.id
   end
 
+  def name
+    if self[:name].nil?
+      nil
+    elsif !self[:name].empty?
+      self[:name]
+    else
+      'Lista #'+self.id.to_s
+    end
+  end
+
   def currency
     Currency.find self.currency_id
   end
