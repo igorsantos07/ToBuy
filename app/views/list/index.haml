@@ -18,10 +18,12 @@
         %a{:href => url(:list, :new), :rel => :external, :data => { :icon => :plus, :role => :button, :inline => :true}} Nova lista
     -else
       %ol{:data => { :role => :listview, 'split-icon' => :gear}}
-        %li{:data => {:role => 'list-divider'}} Abertas
-        =list_of(@lists[false]) do |list|
-          =partial 'list/list_item', :locals => { :list => list }
-        %li{:data => {:role => 'list-divider'}} Compradas
-        =list_of(@lists[true]) do |list|
-          =partial 'list/list_item', :locals => { :list => list }
+        -unless @lists[false].nil?
+          %li{:data => {:role => 'list-divider'}} Abertas
+          =list_of(@lists[false]) do |list|
+            =partial 'list/list_item', :locals => { :list => list }
+        -unless @lists[true].nil?
+          %li{:data => {:role => 'list-divider'}} Compradas
+          =list_of(@lists[true]) do |list|
+            =partial 'list/list_item', :locals => { :list => list }
   =partial 'layouts/footer'
