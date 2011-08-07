@@ -26,8 +26,4 @@ ToBuy.controller :index do
     set_current_account(nil)
     redirect url(:index, :login)
 	end
-
-  get :signup do
-
-  end
 end

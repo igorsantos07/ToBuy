@@ -1,0 +1,14 @@
+-content_for :title do
+  -'Cadastro'
+
+#new(data-role="page" data-theme="b")
+  .header(data-role="header")
+    %h1 Cadastro
+    %a(href="#{url(:index, :index)}" data-icon="arrow-l" data-direction="reverse") Voltar
+
+  .content(data-role="content")
+    -form_for :account, url(:account, :new) do |f|
+      =partial "account/form", :locals => { :f => f }
+      .buttons-line
+        =submit_tag('Cadastrar!', 'data-inline' => 'true')
+  =partial 'layouts/footer'
