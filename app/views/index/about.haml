@@ -1,7 +1,7 @@
 #about(data-role="page" data-theme="b")
   .header(data-role="header")
     %h1 ToBuy - Sobre
-    %a(href="#{url(:index, :index)}" data-icon="arrow-l" data-direction="reverse") Voltar
+    %a(href="#{url(:index, :index)}" data-rel="back" data-icon="arrow-l") Voltar
 
   .content(data-role="content")
     :textile
@@ -15,5 +15,5 @@
 
     %p
       E aí, vai
-      %a{:href => url(:index, :signup)} cadastrar
+      %a{:href => url(:account, :new)} cadastrar
       quando?
