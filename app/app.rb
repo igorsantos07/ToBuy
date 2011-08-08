@@ -29,17 +29,6 @@ class ToBuy < Padrino::Application
     sass params[:file]
   end
 
-  ## TASKS
-  #TODO adicionar masked input no campo de preço do item
-  #TODO tratar vírgula/ponto na inserção do produto
-  #TODO adicionar relacionamentos aos modelos e remover métodos feiosos
-  #TODO página de cadastro
-  #TODO adicionar campo de comentários aos itens
-  #TODO adicionar opção para exibir o custo total da lista juntamente com o total de itens na tela principal
-  #TODO adicionar suporte a face/twitter via omniauth
-  #BUG resolver problema de fazer select sempre, até quando está deslogado
-  #TODO adicionar labels de erro pra cada campo
-
   ##
   # Caching support
   #
