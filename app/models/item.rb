@@ -1,5 +1,9 @@
 class Item < ActiveRecord::Base
 
+  def self.format_price price, currency_symbol
+    price.sub(currency_symbol+' ','').gsub('.','').sub(',','.')
+  end
+
   def name
     if self[:name].nil?
       nil

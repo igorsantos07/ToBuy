@@ -6,9 +6,7 @@ ToBuy.controllers :item, :parent => :list do
 
   post :new do
     @list = List.find params[:list_id]
-    params[:item]['price'] = params[:item]['price'].sub(@list.currency.symbol+' ','').gsub('.','').sub(',','.') unless params[:item]['price'].empty? #changing from "R$ 10.000,55" to "10000.55"
-
-    ap params
+    params[:item]['price'] = Item.format_price(params[:item]['price'], @list.currency.symbol) unless params[:item]['price'].empty?
     @item = Item.new(params[:item].merge! :list_id => params[:list_id])
     if @item.save
       redirect url(:list, :view, :id => @item.list_id)
@@ -24,9 +22,8 @@ ToBuy.controllers :item, :parent => :list do
 
   put :edit, :map => 'item/:id' do
     @item = Item.find(params[:id])
-    ap @item
+    params[:item]['price'] = Item.format_price(params[:item]['price'], @item.list.currency.symbol) unless params[:item]['price'].empty?
     @item.attributes = params[:item]
-    ap @item
     if !@item.save
       flash[:warning] = 'Ocorreu um erro ao salvar o item'
     end

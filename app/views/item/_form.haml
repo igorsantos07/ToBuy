@@ -6,7 +6,7 @@
   =f.text_field :code
 .field-line(data-role="fieldcontain")
   =f.label :price, :caption => 'Preço: '
-  =f.text_field :price
+  =f.text_field :price, :value => number_with_precision(@item.price, {:separator => '.', :delimiter => '', :precision => 2})
 .field-line(data-role="fieldcontain")
   =f.label :url, :caption => 'URL: '
   =f.text_field :url
