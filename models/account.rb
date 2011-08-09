@@ -27,6 +27,14 @@ class Account < ActiveRecord::Base
     ::BCrypt::Password.new(crypted_password) == password
   end
 
+  def lists_count
+    List.where(:account_id => self.id).count
+  end
+
+  def items_count
+    Item.joins(:list).where('lists.account_id' => self.id).count
+  end
+
   private
     def encrypt_password
       self.crypted_password = ::BCrypt::Password.create(password)

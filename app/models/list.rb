@@ -1,8 +1,6 @@
 class List < ActiveRecord::Base
-
-  def items
-    Item.find_all_by_list_id self.id
-  end
+  has_many :items
+  belongs_to :currency
 
   def name
     if self[:name].nil?
@@ -12,10 +10,6 @@ class List < ActiveRecord::Base
     else
       'Lista #'+self.id.to_s
     end
-  end
-
-  def currency
-    Currency.find self.currency_id
   end
 
   def items_count

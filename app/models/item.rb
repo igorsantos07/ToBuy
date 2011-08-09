@@ -1,4 +1,5 @@
 class Item < ActiveRecord::Base
+  belongs_to :list
 
   def self.format_price price, currency_symbol
     price.sub(currency_symbol+' ','').gsub('.','').sub(',','.')
@@ -16,10 +17,6 @@ class Item < ActiveRecord::Base
     else
       'Item #'+self.id.to_s
     end
-  end
-
-  def list
-    List.find self.list_id
   end
 
   def short_url

@@ -19,4 +19,8 @@ ToBuy.controllers :account do
       render 'account/signup'
     end
   end
+
+  get :details, :map => 'my-details' do
+    render 'account/details'
+  end
 end
