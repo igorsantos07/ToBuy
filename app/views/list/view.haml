@@ -19,7 +19,7 @@
         -@list.items.each do |item|
           %li
             %a(href="#{url(:item, :edit, :id => item.id, :list_id => @list.id)}" rel="external")=item.name
-            -if !item.url.empty?
+            -if item.url.present?
               %a(href="#{item.url}" target="_blank") Abrir URL
             -if !item.price.nil?
               %span.ui-li-count=@list.currency.symbol+number_with_precision(item.price, settings.money_options)
