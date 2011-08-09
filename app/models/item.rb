@@ -1,5 +1,5 @@
 class Item < ActiveRecord::Base
-  belongs_to :list
+  belongs_to :list, :counter_cache => true
 
   def self.format_price price, currency_symbol
     price.sub(currency_symbol+' ','').gsub('.','').sub(',','.')

@@ -1,7 +1,7 @@
 class List < ActiveRecord::Base
   has_many :items
   belongs_to :currency
-  belongs_to :account
+  belongs_to :account, :counter_cache => true
 
   def name
     if self[:name].nil?
@@ -11,10 +11,6 @@ class List < ActiveRecord::Base
     else
       'Lista #'+self.id.to_s
     end
-  end
-
-  def items_count
-    Item.count_by_sql "SELECT COUNT(*) FROM items WHERE list_id = #{self.id}"
   end
 
   def total

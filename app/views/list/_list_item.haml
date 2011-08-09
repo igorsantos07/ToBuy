@@ -1,4 +1,4 @@
 %a{:href => url(:list, :view, :id => list.id), :rel => :external}=list.name
 %a{:href => url(:list, :edit, :id => list.id), :rel => :external} Editar lista
 -if list.items_count != 0
-  %span.ui-li-count=list.items_count
+  %span.ui-li-count=list.items.size
