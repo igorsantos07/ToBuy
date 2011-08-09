@@ -1,4 +1,6 @@
 class Account < ActiveRecord::Base
+  has_many :lists
+
   attr_accessor :password, :password_confirmation
 
   # Validations

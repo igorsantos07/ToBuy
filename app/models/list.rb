@@ -1,6 +1,7 @@
 class List < ActiveRecord::Base
   has_many :items
   belongs_to :currency
+  belongs_to :account
 
   def name
     if self[:name].nil?

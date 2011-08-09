@@ -6,8 +6,7 @@ ToBuy.controllers :list do |controller|
   end
 
   get :index, :map => 'lists' do
-    @lists = List.find_all_by_account_id current_account.id
-    @lists = @lists.group_by { |list| list.bought }
+    @lists = current_account.lists.group_by { |list| list.bought }
     render 'list/index'
   end
 
