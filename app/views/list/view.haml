@@ -23,4 +23,4 @@
               %a(href="#{item.url}" target="_blank") Abrir URL
             -if !item.price.nil?
               %span.ui-li-count=@list.currency.symbol+number_with_precision(item.price, settings.money_options)
-  =partial 'layouts/footer'
+  =partial 'base/footer'
