@@ -2,6 +2,6 @@
   %ul
     %li
       %a{:href => url(:item, :delete, :id => @item.id, :list_id => @item.list_id), :data => {:icon => :delete, :iconpos => :top}, :onclick => "return confirm('Apagar mesmo este item?')"} Apagar
-    -if !@item.url.present?
+    -if @item.url.present?
       %li
         %a{:href => @item.url, :target => :_blank, :data => {:icon => :forward, :iconpos => :top}} Abrir URL
