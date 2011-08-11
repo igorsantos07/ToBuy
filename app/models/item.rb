@@ -5,7 +5,7 @@ class Item < ActiveRecord::Base
     price.sub(currency_symbol+' ','').gsub('.','').sub(',','.')
   end
 
-  def name
+  def displayable_name
     if self[:name].nil?
       nil
     elsif !self[:name].empty?
