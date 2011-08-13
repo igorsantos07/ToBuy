@@ -56,6 +56,9 @@ form {
 input.ui-input-text, textarea.ui-input-text, input.ui-input-search {
   background-color: #f0f0f0; }
 
+#about #feedback {
+  margin-top: 3em; }
+
 #login .content h1 {
   width: 210px;
   margin: 0px auto 5px auto; }

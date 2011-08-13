@@ -17,4 +17,16 @@
       E aí, vai
       %a{:href => url(:account, :new)} cadastrar
       quando?
+
+    %p#feedback
+      Aliás, se quiser dar algum feedback, fico muito agradecido! Você pode entrar em contato de duas formas:
+      %ul
+        %li
+          Via email:
+          %a{:href => 'mailto:igorsantos07@gmail.com'}igorsantos07@gmail.com
+        %li
+          Abrindo uma
+          %a{:href => 'http://www.github.com/igorsantos07/ToBuy/issues'} issue no Github
+          (também pode forkar se quiser! :D)
+
   =partial 'base/footer'
