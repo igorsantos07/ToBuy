@@ -29,6 +29,14 @@ class ToBuy < Padrino::Application
     sass params[:file]
   end
 
+  configure :development, :test do
+    set :jquery_root, '/javascripts/jquery/'
+  end
+
+  configure :production do
+    set :jquery_root, 'http://code.jquery.com/'
+  end
+
   ##
   # Caching support
   #
