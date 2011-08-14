@@ -1,0 +1,27 @@
+-content_for :title do
+  -'Minha conta'
+
+#edit(data-role="page" data-theme="b")
+  .header(data-role="header")
+    %h1 Minha conta
+    %a(href="#{url(:index, :index)}" data-icon="arrow-l" data-direction="reverse") Voltar
+
+  .content(data-role="content")
+    .flash=[:error, :warning, :notice].map { |type| flash_tag(type, :class => "message #{type}") }.join
+    -form_for current_account, url(:account, :edit), :method => :put do |f|
+      =partial "account/form", :locals => { :f => f, :no_password => true }
+      .buttons-line
+        =submit_tag('Salvar', 'data-inline' => 'true')
+
+    -#TODO fix those crappy ids; here, in the sass and js files
+    #dangerous-buttons{:data => {:role => :collapsible, :collapsed => :true, :theme => :c}}
+      %h1 Outras ações
+      -#%a{:href => url(:account, :change_password, :id => current_account.id), :data => {:theme => :c, :role => :button, :inline => :true, :icon => :refresh}} Mudar minha senha
+      %a#remove{:href => 'javascript:void(0)', :data => {:role => :button, :inline => :true, :icon => :alert, :theme => :f}} APAGAR CONTA
+      -form_tag url(:account, :remove), :method => :delete do
+        =label_tag :password, :caption => 'Digite sua senha: '
+        =password_field_tag :password
+        %a#giveup{:href => 'javascript:void(0)', :data => {:role => :button, :inline => :true, :icon => :star, :theme => :c}} Desisti
+        =submit_tag('APAGAR CONTA', 'data-inline' => :true, 'data-icon' => :alert, 'data-theme' => :f)
+
+  =partial 'base/footer'

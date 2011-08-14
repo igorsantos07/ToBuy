@@ -4,7 +4,8 @@
 #all{:data => { :role => :page, :theme => :b}}
   .header{:data => { :role => :header}}
     %h1 Listas
-    %a{:href => url(:list, :new), :rel => :external, :class => 'ui-btn-right', :data => { :icon => :plus}} Nova
+    %a{:href => url(:account, :edit), :rel => :external, :data => { :icon => :star}} Conta
+    %a{:href => url(:list, :new), :rel => :external, :data => { :icon => :plus}} Nova
 
   .content.list{:data => {:role => :content}}
     =partial 'list/flash'

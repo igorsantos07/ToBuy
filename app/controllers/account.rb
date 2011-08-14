@@ -20,7 +20,31 @@ ToBuy.controllers :account do
     end
   end
 
-  get :details, :map => 'my-details' do
-    render 'account/details'
+  get :edit, :map => 'my-details' do
+    render 'account/edit'
+  end
+
+  put :edit, :map => 'my-details' do
+    current_account.name  = params['account']['name']
+    current_account.email = params['account']['email']
+    current_account.save
+    flash[:notice] = 'Dados salvos!'
+    render 'account/edit'
+  end
+
+  get :change_password do
+
+  end
+
+  delete :remove do
+    if current_account.has_password? params['password']
+      current_account.destroy
+      set_current_account(nil)
+      flash[:notice] = 'Até mais!'
+      redirect url(:index, :login)
+    else
+      flash[:error] = 'Senha incorreta'
+      render 'account/edit'
+    end
   end
 end

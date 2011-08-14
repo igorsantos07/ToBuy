@@ -3,8 +3,8 @@ h2, h3, h4, h5, h6
 
 p
   font-size: 14px
-p:first-letter
-  margin-left: .6em
+  &:first-letter
+    margin-left: .6em
 ins
   text-decoration: underline
 
@@ -92,8 +92,24 @@ input.ui-input-text, textarea.ui-input-text, input.ui-input-search
         padding-bottom: 5px
         font-size: 1.7em
 
+#edit
+  #dangerous-buttons
+    margin: 0px auto
+    width: 95%
+    background-color: white
+    margin-top: 30px
+    text-align: center
+    form
+      border: 1px dashed crimson
+      background-color: lighten(red, 45%)
+      margin: 10px 20px 10px 10px
+      padding: 10px
+      display: none
+
 .content.list
   .flash
     margin: -15px -15px 15px -15px
     .message
       width: 100%
+
+@import 'theme-f'

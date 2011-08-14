@@ -8,12 +8,14 @@
   =f.text_field :email
   =f.error_message_on :email
 
-.field-line(data-role="fieldcontain")
-  =f.label :password, :caption => 'Senha*: '
-  =f.password_field :password
-  =f.error_message_on :password
+- no_password = false if no_password.nil?
+- unless no_password
+  .field-line(data-role="fieldcontain")
+    =f.label :password, :caption => 'Senha*: '
+    =f.password_field :password
+    =f.error_message_on :password
 
-.field-line(data-role="fieldcontain")
-  =f.label :password_confirmation, :caption => 'Confirme a senha*: '
-  =f.password_field :password_confirmation
-  =f.error_message_on :password_confirmation
+  .field-line(data-role="fieldcontain")
+    =f.label :password_confirmation, :caption => 'Confirme a senha*: '
+    =f.password_field :password_confirmation
+    =f.error_message_on :password_confirmation
