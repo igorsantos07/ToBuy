@@ -27,3 +27,5 @@ Padrino.after_load do
 end
 
 Padrino.load!
+
+STDOUT.puts "RPM detected environment: #{NewRelic::LocalEnvironment.new}"
