@@ -11,6 +11,7 @@ ToBuy.controllers :list do |controller|
   end
 
   get :new do
+    @list = List.new
     @currencies = controller.get_currencies
     render 'list/new'
   end
@@ -39,8 +40,12 @@ ToBuy.controllers :list do |controller|
 
   put :edit, :with => :id do
     @list = List.find(params[:id])
+    params[:list]['final_price'] = Item.format_price(params[:list]['final_price'], @list.currency.symbol) unless params[:list]['final_price'].nil? || params[:list]['final_price'].empty?
     @list.attributes = params[:list]
+    @list.final_price = nil if !@list.bought
+    ap params[:list]
     if @list.save
+      ap @list
       redirect url(:list, :view, :id => @list.id)
     else
       flash[:warning] = 'Ocorreu um erro ao salvar a lista'

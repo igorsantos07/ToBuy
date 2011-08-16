@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 9) do
+ActiveRecord::Schema.define(:version => 10) do
 
   create_table "accounts", :force => true do |t|
     t.string  "name"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(:version => 9) do
     t.integer "currency_id"
     t.boolean "bought",                    :default => false, :null => false
     t.integer "items_count",               :default => 0,     :null => false
+    t.decimal "final_price"
   end
 
   add_index "lists", ["account_id"], :name => "index_lists_on_user_id"

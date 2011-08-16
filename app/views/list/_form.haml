@@ -1,8 +1,26 @@
-.field-line(data-role="fieldcontain")
+.field-line{:data => {:role => :fieldcontain}}
   =f.label :name, :caption => 'Nome: '
   =f.text_field :name
-.field-line(data-role="fieldcontain")
+
+.field-line{:data => {:role => :fieldcontain}}
   =f.label :currency_id, :caption => 'Moeda: '
   =f.select :currency_id, :options => @currencies
+
+-unless @list.new_record?
+  .field-line{:data => {:role => :fieldcontain}}
+    %fieldset{:data => {:role => :controlgroup, :type => :horizontal}}
+      %legend Fechada?
+      =f.radio_button :bought, :value => :true, :checked => @list.bought
+      %label{:for => :list_bought_true} Sim
+      =f.radio_button :bought, :value => :false, :checked => !@list.bought
+      %label{:for => :list_bought_false} Não
+
+  -if @list.bought
+    .field-line{:data => {:role => :fieldcontain}}
+      =f.label :final_price, :caption => 'Valor pago'
+      =f.text_field :final_price, :value => number_with_precision(@list.final_price, {:separator => '.', :delimiter => '', :precision => 2})
+      :javascript
+        $('#list_final_price').priceFormat(#{priceFormat_options(@list)})
+
 .buttons-line
   =submit_tag('Salvar', 'data-inline' => 'true')
