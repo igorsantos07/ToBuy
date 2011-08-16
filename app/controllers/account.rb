@@ -33,7 +33,23 @@ ToBuy.controllers :account do
   end
 
   get :change_password do
+    render 'account/change_password'
+  end
 
+  put :change_password do
+    if current_account.has_password? params['account']['current_password']
+      params['account'].delete('current_password')
+      current_account.attributes = params['account']
+      if current_account.save
+        flash[:notice] = 'Senha alterada!'
+        redirect url(:index, :index)
+      else
+        flash[:error] = 'Houve um problema ao salvar a nova senha'
+      end
+    else
+      flash[:error] = 'Senha atual incorreta'
+    end
+    render 'account/change_password'
   end
 
   delete :remove do
