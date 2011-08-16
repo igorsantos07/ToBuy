@@ -53,4 +53,17 @@ ActiveRecord::Schema.define(:version => 10) do
   add_index "lists", ["account_id"], :name => "index_lists_on_user_id"
   add_index "lists", ["currency_id"], :name => "index_lists_on_currency_id"
 
+  create_table "tracking_codes", :force => true do |t|
+    t.string  "code",               :limit => 20, :null => false
+    t.integer "list_id"
+    t.integer "tracking_system_id"
+  end
+
+  create_table "tracking_systems", :force => true do |t|
+    t.string "name", :limit => 20,  :null => false
+    t.string "url",  :limit => 250
+  end
+
+  add_index "tracking_systems", ["name"], :name => "index_tracking_systems_on_name", :unique => true
+
 end
