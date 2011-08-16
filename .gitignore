@@ -7,3 +7,4 @@ vendor/gems/*
 .sass-cache/*
 /nbproject/private/
 Gemfile.lock
+config/newrelic.yml
