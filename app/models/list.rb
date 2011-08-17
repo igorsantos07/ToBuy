@@ -1,5 +1,6 @@
 class List < ActiveRecord::Base
   has_many :items
+  has_many :tracking_codes
   belongs_to :currency
   belongs_to :account, :counter_cache => true
 

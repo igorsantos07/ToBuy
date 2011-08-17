@@ -25,3 +25,6 @@
     -if !@list.bought
       %li
         %a{:href => url(:list, :bought, :id => @list.id), :class => @class[:bought], :data => {:feature => 'bought-btn', :icon => :check, :iconpos => :top}} Fechar lista
+    -if @list.bought
+      %li
+        %a{:href => url(:tracking, :index, :list_id => @list.id), :class => @class[:tracking], :data => {:icon => :info, :iconpos => :top}} Rastreio

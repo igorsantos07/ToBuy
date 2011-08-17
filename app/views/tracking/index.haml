@@ -1,0 +1,22 @@
+-content_for :title do
+  -'Rastreio - '+@list.name
+
+#all{:data => {:role => :page, :theme => :b}}
+  .header{:data => {:role => :header}}
+    %h1='Rastreio - '+@list.name
+    %a{:href => url(:list, :view, :id => @list.id), :data => {:icon => 'arrow-l', :direction => :reverse}} Lista
+    %a{:href => url(:tracking, :new, :list_id => @list.id), :rel => :external, :data => {:icon => :plus}, :class => 'ui-btn-right'} Código
+
+  .content.list{:data => {:role => :content}}
+    =partial 'list/flash'
+
+    -if @list.tracking_codes.empty?
+      %h2.empty
+        %a{:href => url(:tracking, :new, :list_id => @list.id), :rel => :external, :data => {:icon => :plus, :role => :button, :inline => :true}} Adicione um código de rastreio
+    -else
+      %ol{:data => {:role => :listview, 'split-icon' => :trash}}
+        -@list.tracking_codes.each do |code|
+          %li
+            %a{:href => code.url}=code.code
+            %a{:href => item.url} Abrir URL
+  =partial 'base/footer'
