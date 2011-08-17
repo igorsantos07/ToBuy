@@ -34,4 +34,3 @@ Currency.create(:code => 'USD', :name => 'Dólar americano', :symbol => '$')
 Currency.create(:code => 'AUD', :name => 'Dólar australiano', :symbol => '$')
 Currency.create(:code => 'CAD', :name => 'Dólar canadense', :symbol => '$')
 Currency.create(:code => 'CNY', :name => 'Yuan chinês', :symbol => '¥')
-
