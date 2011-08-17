@@ -40,7 +40,7 @@ Admin.controllers :accounts do
     if account != current_account && account.destroy
       flash[:notice] = 'Account was successfully destroyed.'
     else
-      flash[:error] = 'Impossible destroy Account!'
+      flash[:error] = 'Unable to destroy Account!'
     end
     redirect url(:accounts, :index)
   end

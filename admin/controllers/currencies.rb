@@ -40,7 +40,7 @@ Admin.controllers :currencies do
     if currency.destroy
       flash[:notice] = 'Currency was successfully destroyed.'
     else
-      flash[:error] = 'Impossible destroy Currency!'
+      flash[:error] = 'Unable to destroy Currency!'
     end
     redirect url(:currencies, :index)
   end

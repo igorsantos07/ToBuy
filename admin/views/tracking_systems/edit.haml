@@ -1,0 +1,15 @@
+.block
+  .secondary-navigation
+    %ul.wat-cf
+      %li.first=link_to pat(:list), url(:tracking_systems, :index)
+      %li=link_to pat(:new), url(:tracking_systems, :new)
+      %li.active=link_to pat(:edit), url(:tracking_systems, :edit, :id => @tracking_system.id)
+  .content
+    %h2.title
+      =pat(:edit)
+      =mt(:tracking_system)
+    .inner
+      -form_for :tracking_system, url(:tracking_systems, :update, :id => @tracking_system.id), :method => :put, :class => :form do |f|
+        =partial "tracking_systems/form", :locals => { :f => f }
+
+-content_for :sidebar, partial("base/sidebar")
