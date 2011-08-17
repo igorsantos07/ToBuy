@@ -28,4 +28,4 @@ end
 
 Padrino.load!
 
-STDOUT.puts "RPM detected environment: #{NewRelic::LocalEnvironment.new}"
+STDOUT.puts "RPM detected environment: #{NewRelic::LocalEnvironment.new}" if PADRINO_ENV == 'production'

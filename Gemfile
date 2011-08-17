@@ -21,8 +21,10 @@ gem 'RedCloth'
 
 # Padrino
 gem 'padrino', '~> 0.10.0'
-gem 'padrino-rpm'
-gem 'newrelic_rpm'
+group :production do
+	gem 'padrino-rpm'
+	gem 'newrelic_rpm'
+end
 # Padrino EDGE
 # gem 'padrino', :git => 'git://github.com/padrino/padrino-framework.git'
 #
