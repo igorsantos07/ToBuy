@@ -11,7 +11,7 @@ ToBuy.controllers :item, :parent => :list do
     if @item.save
       redirect url(:list, :view, :id => @item.list_id)
     else
-      render 'list/index'
+      render 'item/new'
     end
   end
 
