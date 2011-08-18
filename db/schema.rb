@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 10) do
+ActiveRecord::Schema.define(:version => 13) do
 
   create_table "accounts", :force => true do |t|
     t.string  "name"
@@ -60,8 +60,9 @@ ActiveRecord::Schema.define(:version => 10) do
   end
 
   create_table "tracking_systems", :force => true do |t|
-    t.string "name", :limit => 20,  :null => false
-    t.string "url",  :limit => 250
+    t.string "name",   :limit => 20,                     :null => false
+    t.string "url",    :limit => 250
+    t.string "method",                :default => "GET", :null => false
   end
 
   add_index "tracking_systems", ["name"], :name => "index_tracking_systems_on_name", :unique => true

@@ -10,6 +10,12 @@
   =f.text_field :url, :class => :text_field
   %span.description Ex: a simple text
 
+.group
+  =f.label :method
+  =f.error_message_on :method
+  =f.select :method, :options => ['GET', 'POST']
+  %span.description Ex: a simple text
+
 
 .group.navform.wat-cf
   =f.submit pat(:save), :class => :button

@@ -13,12 +13,14 @@
           %th.first=mat(:tracking_system, :id)
           %th=mat(:tracking_system, :name)
           %th=mat(:tracking_system, :url)
+          %th=mat(:tracking_system, :method)
           %th.last="&nbsp;"
         -@tracking_systems.each do |tracking_system|
           %tr
             %td.first=tracking_system.id
             %td=tracking_system.name
             %td=tracking_system.url
+            %td=tracking_system.method
             %td.last
               =button_to pat(:edit), url(:tracking_systems, :edit, :id => tracking_system.id), :method => :get, :class => :button_to
               ="|"
