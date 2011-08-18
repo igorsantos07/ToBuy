@@ -1,0 +1,14 @@
+-content_for :title do
+  -'Novo Código de Rastreio'
+
+#new(data-role="page" data-theme="b")
+  .header(data-role="header")
+    %h1 Novo Rastreio
+    %a(href="#{url(:list, :view, :id => params[:list_id])}" data-icon="arrow-l" data-direction="reverse") Voltar
+
+  .content(data-role="content")
+    -form_for :tracking_code, url(:tracking, :new, :list_id => params[:list_id]) do |f|
+      =partial "tracking/form", :locals => { :f => f }
+      .buttons-line
+        =submit_tag('Adicionar', 'data-inline' => 'true')
+  =partial 'base/footer'

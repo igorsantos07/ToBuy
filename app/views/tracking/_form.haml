@@ -1,0 +1,9 @@
+.field-line(data-role="fieldcontain")
+  =f.label :tracking_system_id, :caption => 'Sistema*: '
+  =f.select :tracking_system_id, :collection => @tracking_systems, :fields => [:name, :id]
+  =f.error_message_on :tracking_system_id
+
+.field-line(data-role="fieldcontain")
+  =f.label :code, :caption => 'Código*: '
+  =f.text_field :code
+  =f.error_message_on :code

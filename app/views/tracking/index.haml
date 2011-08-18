@@ -12,11 +12,10 @@
 
     -if @list.tracking_codes.empty?
       %h2.empty
-        %a{:href => url(:tracking, :new, :list_id => @list.id), :rel => :external, :data => {:icon => :plus, :role => :button, :inline => :true}} Adicione um código de rastreio
+        %a{:href => url(:tracking, :new, :list_id => @list.id), :rel => :external, :data => {:icon => :plus, :role => :button, :inline => :true}} Adicione um código
     -else
       %ol{:data => {:role => :listview, 'split-icon' => :trash}}
         -@list.tracking_codes.each do |code|
           %li
-            %a{:href => code.url}=code.code
-            %a{:href => item.url} Abrir URL
+            %a{:href => code.url}="#{code.code} (#{code.tracking_system.name})"
   =partial 'base/footer'
