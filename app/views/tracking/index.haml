@@ -16,6 +16,12 @@
     -else
       %ol{:data => {:role => :listview, 'split-icon' => :trash}}
         -@list.tracking_codes.each do |code|
-          %li
-            %a{:href => code.url}="#{code.code} (#{code.tracking_system.name})"
+          -if code.tracking_system.method == 'GET'
+            %li
+              %a{:href => code.url}="#{code.code} (#{code.tracking_system.name})"
+          -elsif code.tracking_system.method == 'POST'
+            %li
+              %a{:href => 'javascript:void(0)', :onclick => "$(this).siblings('form').submit(); return false"}="#{code.code} (#{code.tracking_system.name})"
+              %form{:action => code.tracking_system.clean_url, :method => :post}
+                %input{:type => :hidden, :name => code.tracking_system.param_name, :value => code.code}
   =partial 'base/footer'
