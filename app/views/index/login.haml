@@ -22,4 +22,8 @@
         =password_field_tag :password, :value => params[:password]
       .buttons-line{:data => {:role => :fieldcontain}}
         =submit_tag 'Logar', 'data-inline' => true
-  =partial 'base/footer'
+
+    %p
+      O ToBuy veio para te ajudar a gerenciar suas compras online.
+      %br
+      %a{:href => url(:index, :about)} Saiba mais!

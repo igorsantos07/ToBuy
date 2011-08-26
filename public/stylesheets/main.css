@@ -88,6 +88,10 @@ input.ui-input-text, textarea.ui-input-text, input.ui-input-search {
     margin-top: -12px;
     padding-bottom: 5px;
     font-size: 1.7em; }
+#login .content p {
+  margin-top: 10px;
+  font-size: 18px;
+  text-align: center; }
 
 #edit #dangerous-buttons {
   margin: 0px auto;
