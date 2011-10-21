@@ -4,11 +4,11 @@ ToBuy.controller :index do
     redirect url(:list, :index)
   end
 
-	get :about do
+	get :about, :map => '/about' do
 		render '/index/about'
 	end
 
-	get :login do
+	get :login, :map => '/login' do
 		render '/index/login'
 	end
 
@@ -22,7 +22,7 @@ ToBuy.controller :index do
     end
 	end
 
-	get :logout do
+	get :logout, :map => '/logout' do
     set_current_account(nil)
     redirect url(:index, :login)
 	end
